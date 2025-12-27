@@ -1,0 +1,80 @@
+package com.example.tripease.service;
+
+import com.example.tripease.Enum.Gender;
+import com.example.tripease.dto.request.CustomerRequest;
+import com.example.tripease.dto.response.CustomerResponse;
+import com.example.tripease.exception.CustomerNotFoundException;
+import com.example.tripease.repository.CustomerRepository;
+import com.example.tripease.model.Customer;
+import com.example.tripease.transformer.CustomerTransformer;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+@Service
+public class CustomerService {
+
+    @Autowired
+    CustomerRepository customerRepository;
+
+    public CustomerResponse addCustomer(CustomerRequest customerRequest) {
+
+        //RequestDTO-->Entity
+        Customer customer = CustomerTransformer.customerRequestToCustomer(customerRequest);
+
+        Customer savedCustomer = customerRepository.save(customer);
+
+        //Saved Entity --> Response DTO
+
+        return CustomerTransformer.customerToCustomerResponse(customer);
+    }
+
+    public CustomerResponse getCustomer(int customer_id) {
+        Optional<Customer> optionalCustomer = customerRepository.findById(customer_id);
+        if(optionalCustomer.isEmpty()){
+            throw new CustomerNotFoundException("Invalid customer ID");
+        }
+
+        Customer savedCustomer = optionalCustomer.get();
+        return CustomerTransformer.customerToCustomerResponse(savedCustomer);
+    }
+
+
+    public List<CustomerResponse> getAllByGender(Gender gender) {
+        List<Customer> customers = customerRepository.findByGender(gender);
+
+        List<CustomerResponse> customerResponses = new ArrayList<>();
+        for(Customer customer:customers){
+            customerResponses.add(CustomerTransformer.customerToCustomerResponse(customer));
+        }
+
+        return customerResponses;
+    }
+
+    public List<CustomerResponse> getByGenderAndAge(Gender gender, int age) {
+        List<Customer> customers = customerRepository.findByGenderAndAge(gender, age);
+
+        List<CustomerResponse> customerResponses = new ArrayList<>();
+        for(Customer customer:customers){
+            customerResponses.add(CustomerTransformer.customerToCustomerResponse(customer));
+        }
+
+        return customerResponses;
+    }
+
+    public List<CustomerResponse> getByGenderAndAgeGreater(Gender gender, int age) {
+
+        List<Customer> customers = customerRepository.findByGenderAndAgeGreater(gender, age);
+
+        List<CustomerResponse> customerResponses = new ArrayList<>();
+        for(Customer customer:customers){
+            customerResponses.add(CustomerTransformer.customerToCustomerResponse(customer));
+        }
+
+        return customerResponses;
+
+    }
+}
