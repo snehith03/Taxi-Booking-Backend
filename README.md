@@ -31,8 +31,14 @@ The system is architected with a focus on **clean code principles**, separating 
 ## 📂 Project Structure
 The application follows a layered architecture to ensure scalability:
 
-src/main/java/com/rideflux ├── controller # REST Controllers (API Layer) ├── service # Business Logic & Validation ├── repository # Database Access Layer ├── model # JPA Entities ├── dto # Data Transfer Objects ├── transformer # DTO-Entity Mappers └── config # Swagger & Email Configurations
-
+src/main/java/com/velocab
+├── config       # Swagger & Email Configurations
+├── controller   # REST Controllers (API Layer)
+├── dto          # Data Transfer Objects
+├── model        # JPA Entities
+├── repository   # Database Access Layer
+├── service      # Business Logic & Validation
+└── transformer  # DTO-Entity Mappers
 
 ## 🔌 API Documentation
 The application exposes **10 endpoints**. Below is a summary of the core APIs implemented.
