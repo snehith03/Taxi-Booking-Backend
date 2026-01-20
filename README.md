@@ -40,7 +40,7 @@ src/main/java/com/velocab
 ├── repository   # Database Access Layer
 ├── service      # Business Logic & Validation
 └── transformer  # DTO-Entity Mappers
-
+```
 ## 🔌 API Documentation
 The application exposes **10 endpoints**. Below is a summary of the core APIs implemented.
 
