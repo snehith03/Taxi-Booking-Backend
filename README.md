@@ -31,6 +31,7 @@ The system is architected with a focus on **clean code principles**, separating 
 ## 📂 Project Structure
 The application follows a layered architecture to ensure scalability:
 
+```text
 src/main/java/com/velocab
 ├── config       # Swagger & Email Configurations
 ├── controller   # REST Controllers (API Layer)
