@@ -1,5 +1,77 @@
-Deveoped modular, scalable backend using Spring Boot with well-structured layers such as Controllers, Services, Repositories, DTOs, Entities, and Transformers. 
-Implemented all the core APIs, including customer management, cab registration, and cab booking.
-Integrated Swagger/OpenAPI for end-to-end API documentation. Implemented functionality for sending email notifications upon booking confirmation using JavaMail.
-Designed microservice-oriented architecture and optimized database operations by using Spring Data JPA, thus ensuring clean data flow, maintainability, and high-performance processing.
-Applied DTO–Entity transformers to maintain strict request/response models and avoid direct entity exposure.
+# VeloCab 🚖
+
+> A scalable, microservices-based backend for a Cab Booking System built with Java and Spring Boot.
+
+![Java](https://img.shields.io/badge/Java-17%2B-orange)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.0%2B-brightgreen)
+![Swagger](https://img.shields.io/badge/Swagger-OpenAPI-green)
+![PostgreSQL/MySQL](https://img.shields.io/badge/Database-PostgreSQL%2FMySQL-blue)
+
+## 📖 Overview
+**VeloCab** is a modular backend application designed to handle the core logic of a ride-hailing platform. It provides **15+ RESTful API endpoints** to manage the complete lifecycle of a booking, from customer registration to ride confirmation.
+
+The system is architected with a focus on **clean code principles**, separating concerns into Controllers, Services, Repositories, and Transformers. It ensures data integrity through strict **DTO-Entity mapping** and features automated email notifications.
+
+## ✨ Key Features
+* **Scalable Architecture:** Designed with microservices principles, ensuring modularity and easy maintenance.
+* **Comprehensive API Suite:** **15+ Endpoints** covering Customer Management, Fleet/Cab Registration, and Booking workflows.
+* **Automated Notifications:** Integrated **JavaMail** to send real-time email confirmations upon booking success.
+* **Secure Data Flow:** Implemented custom **DTOs and Transformers** to prevent direct entity exposure and enforce strict API contracts.
+* **Live Documentation:** Fully integrated **Swagger/OpenAPI** UI for real-time API testing and documentation.
+* **Optimized Performance:** Enhanced database querying using **Spring Data JPA**.
+
+## 🛠️ Tech Stack
+* **Language:** Java
+* **Framework:** Spring Boot
+* **Database:** MySQL 
+* **ORM:** Spring Data JPA
+* **Documentation:** Swagger UI / OpenAPI
+* **Utilities:** JavaMail Sender, Lombok
+
+## 📂 Project Structure
+The application follows a layered architecture to ensure scalability:
+
+src/main/java/com/rideflux ├── controller # REST Controllers (API Layer) ├── service # Business Logic & Validation ├── repository # Database Access Layer ├── model # JPA Entities ├── dto # Data Transfer Objects ├── transformer # DTO-Entity Mappers └── config # Swagger & Email Configurations
+
+
+## 🔌 API Documentation
+This project uses Swagger for API documentation.
+1.  Start the application.
+2.  Navigate to: `http://localhost:8080/swagger-ui/index.html`
+
+### Core Endpoints Overview
+| Module | Method | Description |
+| :--- | :--- | :--- |
+| **Customer** | `POST` | Register a new customer |
+| **Customer** | `GET` | Fetch customer profile |
+| **Cab** | `POST` | Register a new cab/driver |
+| **Booking** | `POST` | Create a new ride booking |
+| **Booking** | `PUT` | Update booking status (Confirm/Cancel) |
+
+*(Note: For a full list of inputs/outputs, refer to the Swagger UI)*
+
+## 🚀 Getting Started
+
+### Prerequisites
+* Java Development Kit (JDK) 17+
+* Maven
+* MySQL/PostgreSQL running locally
+
+### Installation
+1.  **Clone the repository**
+    ```bash
+    git clone [https://github.com/yourusername/rideflux.git](https://github.com/yourusername/rideflux.git)
+    ```
+2.  **Configure Database**
+    Update `src/main/resources/application.properties`:
+    ```properties
+    spring.datasource.url=jdbc:mysql://localhost:3306/rideflux_db
+    spring.datasource.username=root
+    spring.datasource.password=yourpassword
+    spring.mail.username=your-email@gmail.com
+    spring.mail.password=your-app-password
+    ```
+3.  **Run the Application**
+    ```bash
+    mvn spring-boot:run
+    ```
