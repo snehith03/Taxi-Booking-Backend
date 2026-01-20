@@ -8,7 +8,7 @@
 ![PostgreSQL/MySQL](https://img.shields.io/badge/Database-PostgreSQL%2FMySQL-blue)
 
 ## 📖 Overview
-**VeloCab** is a modular backend application designed to handle the core logic of a ride-hailing platform. It provides **15+ RESTful API endpoints** to manage the complete lifecycle of a booking, from customer registration to ride confirmation.
+**VeloCab** is a modular backend application designed to handle the core logic of a ride-hailing platform. It provides **10+ RESTful API endpoints** to manage the complete lifecycle of a booking, from customer registration to ride confirmation.
 
 The system is architected with a focus on **clean code principles**, separating concerns into Controllers, Services, Repositories, and Transformers. It ensures data integrity through strict **DTO-Entity mapping** and features automated email notifications.
 
