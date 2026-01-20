@@ -14,11 +14,11 @@ The system is architected with a focus on **clean code principles**, separating 
 
 ## ✨ Key Features
 * **Scalable Architecture:** Designed with microservices principles, ensuring modularity and easy maintenance.
-* **Comprehensive API Suite:** **15+ Endpoints** covering Customer Management, Fleet/Cab Registration, and Booking workflows.
+* **Comprehensive API Suite:** **10+ Endpoints** covering Customer Management, Fleet/Cab Registration, and Booking workflows.
 * **Automated Notifications:** Integrated **JavaMail** to send real-time email confirmations upon booking success.
 * **Secure Data Flow:** Implemented custom **DTOs and Transformers** to prevent direct entity exposure and enforce strict API contracts.
 * **Live Documentation:** Fully integrated **Swagger/OpenAPI** UI for real-time API testing and documentation.
-* **Optimized Performance:** Enhanced database querying using **Spring Data JPA**.
+* **Optimized Performance:** Enhanced database querying using **Spring Data JPA**. **Average response time less than 200ms.**
 
 ## 🛠️ Tech Stack
 * **Language:** Java
