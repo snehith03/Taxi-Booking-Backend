@@ -35,20 +35,25 @@ src/main/java/com/rideflux ├── controller # REST Controllers (API Layer) �
 
 
 ## 🔌 API Documentation
-This project uses Swagger for API documentation.
-1.  Start the application.
-2.  Navigate to: `http://localhost:8080/swagger-ui/index.html`
+The application exposes **10 endpoints**. Below is a summary of the core APIs implemented.
 
-### Core Endpoints Overview
-| Module | Method | Description |
+### 👤 Customer Module
+| Method | Endpoint | Description |
 | :--- | :--- | :--- |
-| **Customer** | `POST` | Register a new customer |
-| **Customer** | `GET` | Fetch customer profile |
-| **Cab** | `POST` | Register a new cab/driver |
-| **Booking** | `POST` | Create a new ride booking |
-| **Booking** | `PUT` | Update booking status (Confirm/Cancel) |
+| `POST` | `/customer/add` | Register a new customer into the system. |
+| `GET` | `/customer/get/customer-id/{id}` | Retrieve a customer's profile by their unique ID. |
+| `GET` | `/customer/get/gender/{gender}` | List all customers matching a specific gender. |
+| `GET` | `/customer/getByGA` | Filter customers by **Gender** and exact **Age**. |
+| `GET` | `/customer/getByGTA` | Filter customers by **Gender** and **Age Greater Than** a specific value. |
 
-*(Note: For a full list of inputs/outputs, refer to the Swagger UI)*
+### 🚖 Driver & Booking Module
+| Method | Endpoint | Description |
+| :--- | :--- | :--- |
+| `POST` | `/driver/add` | Onboard a new driver to the fleet. |
+| `POST` | `/booking/book/customer/{customer_id}` | Initiate a cab booking for a specific customer. |
+| `POST` | `/cab/register/driver/{driver_id}` | Assign/Register a driver to a specific cab vehicle. |
+
+*(Note: Launch the application and visit `http://localhost:8080/swagger-ui/index.html` for the full interactive documentation and request schemas.)*
 
 ## 🚀 Getting Started
 
